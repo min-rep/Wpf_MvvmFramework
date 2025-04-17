@@ -2,6 +2,7 @@
 using System.Data;
 using System.Windows;
 using Microsoft.Extensions.DependencyInjection;
+using Wpf_MvvmFramework.ViewModels;
 
 namespace Wpf_MvvmFramework
 {
@@ -13,6 +14,7 @@ namespace Wpf_MvvmFramework
         public App()
         {
             Services = ConfigureServices();
+            this.InitializeComponent();
         }
 
         /// <summary>
@@ -34,6 +36,8 @@ namespace Wpf_MvvmFramework
         private static IServiceProvider ConfigureServices()
         {
             var services = new ServiceCollection();
+            //ViewModel 등록
+            services.AddTransient(typeof(MainViewModel));
 
             return services.BuildServiceProvider();
         }
