@@ -6,8 +6,6 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Wpf_MvvmFramework" 
-        xmlns:viewmodels="clr-namespace:Wpf_MvvmFramework.ViewModels" 
-        d:DataContext="{d:DesignInstance Type=viewmodels:MainViewModel}"
         mc:Ignorable="d"
         Title="{Binding Title}" Height="450" Width="800">
     <!--<Grid>
@@ -31,7 +29,11 @@
                         Header="C_ustomer Management" />
             </MenuItem>
         </Menu>
-        <Frame />
+        <Frame NavigationUIVisibility="Hidden">
+            <b:Interaction.Behaviors>
+                <behaviors:FrameBehavior NavigationSource="{Binding NavigationSource, Mode=TwoWay}" />
+            </b:Interaction.Behaviors>
+        </Frame>
     </DockPanel>
     
 </Window>

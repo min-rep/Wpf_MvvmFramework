@@ -36,8 +36,11 @@ namespace Wpf_MvvmFramework
         private static IServiceProvider ConfigureServices()
         {
             var services = new ServiceCollection();
+
             //ViewModel 등록
             services.AddTransient(typeof(MainViewModel));
+            services.AddTransient(typeof(HomeViewModel));
+            services.AddTransient(typeof(CustomerViewModel));
 
             return services.BuildServiceProvider();
         }
